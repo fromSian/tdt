@@ -4,7 +4,7 @@ var path = require('path');
 var axios = require('axios');
 const jimp = require('jimp');
 var app = express();
-
+const PORT = process.env.PORT || 3030;
 app.use(express.static('public'));
 app.get('/', function (req, res) {
   res.send('123');
@@ -31,8 +31,8 @@ app.get('/vec_c/wmts', async function (req, res) {
   }
 });
 
-var server = app.listen(1234, function () {
-  console.log('start');
+var server = app.listen(PORT, function () {
+  console.log(PORT);
 });
 
 async function saveImage(url, savePath, res) {
